@@ -1,0 +1,33 @@
+﻿<#@ output extension=".cs" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<# 
+	var config = new Dictionary<Type,int>()
+	{
+		{ typeof(string), 50 },
+		{ typeof(int), 50 },
+		// { typeof(DateTime), 5},
+	};
+	int index = 0;
+#>
+namespace Workshop
+{
+	public class BigClass
+	{
+<# 
+	foreach(var kv in config)
+	{
+		for(var i=0; i < kv.Value; i++)
+		{
+
+#>
+		public <#= kv.Key #> Property<#= index++ #> { get; set; } 
+<#
+		}
+#>
+
+<#
+	}
+#>
+	}
+}

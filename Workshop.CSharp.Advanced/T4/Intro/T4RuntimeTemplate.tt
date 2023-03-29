@@ -1,0 +1,12 @@
+<#@ output extension=".xml" #>
+<#@ import namespace="System.Linq" #>
+<data>
+<#
+    foreach(var p in ListOfPeople)
+    {
+#>
+    <person id="<#= p.Id #>" name="<#= p.Name #>" />
+<#
+    }
+#>
+<data>

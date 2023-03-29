@@ -1,0 +1,17 @@
+<#@ output extension=".xml" #>
+<#@ import namespace="System.Linq" #>
+<#
+    var ListOfPeople = Enumerable.Range(1,10).Select( id => new  { Id = id, Name = "John " + id});
+#>
+<data>
+<#
+    foreach(var p in ListOfPeople)
+    {
+#>
+    <person id="<#= p.Id #>" name="<#= p.Name #>" />
+<#
+    }
+#>
+<data>
+
+
